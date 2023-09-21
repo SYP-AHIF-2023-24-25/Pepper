@@ -6,8 +6,6 @@ Samuel Atzlesberger, Michael Werner, Marcus Rabeder, Vincent Eichinger
 
 ## User Stories
 
-- Als Pflegekraft, die schon stark ausgelastet ist, würde es mir helfen, wenn sich die Rentner selber mit dem Roboter beschäftigen könnten.
-
 - Als Bewohner eines Altersheims möchte ich per Gesichtserkennung, alle Spiele die für mich bestimmt sind sehen und die ausgewählten dann spielen.
 
 - Als Enkel, möchte ich ganz einfach auf einer Website ein Spiel für meinen Opa erstellen.
