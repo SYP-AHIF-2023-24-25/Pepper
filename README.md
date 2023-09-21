@@ -8,7 +8,7 @@ Samuel Atzlesberger, Michael Werner, Marcus Rabeder, Vincent Eichinger
 
 - Als Bewohner eines Altersheims möchte ich per Gesichtserkennung ein personalisiertes Memorie bekommen.
 
-- Als Enkel, möchte ich ganz einfach auf einer Website ein Spiel für meinen Opa erstellen.
+- Als Enkel, möchte ich ganz einfach auf einer Website ein Spiel für meinen Opa erstellen können.
 
 - Als Pflegekraft, die viel mit dem Pepperroboter arbeitet, würde es mir helfen, wenn es Vorschaubilder bei den einzelnen Spielen gäbe.
 
