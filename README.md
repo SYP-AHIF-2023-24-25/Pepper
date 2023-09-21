@@ -6,7 +6,7 @@ Samuel Atzlesberger, Michael Werner, Marcus Rabeder, Vincent Eichinger
 
 ## User Stories
 
-- Als Bewohner eines Altersheims möchte ich per Gesichtserkennung, alle Spiele die für mich bestimmt sind sehen und die ausgewählten dann spielen.
+- Als Bewohner eines Altersheims möchte ich per Gesichtserkennung ein personalisiertes Memorie bekommen.
 
 - Als Enkel, möchte ich ganz einfach auf einer Website ein Spiel für meinen Opa erstellen.
 
