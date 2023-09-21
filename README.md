@@ -1,7 +1,7 @@
 # Pepper
 Samuel Atzlesberger, Michael Werner, Marcus Rabeder, Vincent Eichinger
 
-##Ziele 
+## Ziele 
 - Als Pflegekraft, die schon stark ausgelastet ist, würde es mir helfen, wenn sich die Rentner selber mit dem Roboter beschäftigen könnten.
 
 ## User Stories
