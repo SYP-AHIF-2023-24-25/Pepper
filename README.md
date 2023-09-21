@@ -7,9 +7,9 @@ Samuel Atzlesberger, Michael Werner, Marcus Rabeder, Vincent Eichinger
 ## User Stories
 
 - Als Bewohner eines Altersheims möchte ich per Gesichtserkennung ein personalisiertes Memorie bekommen.
-- 
+  
 - Als Pflegekraft, die viel mit dem Pepperroboter arbeitet, würde es mir helfen, wenn es eine Vorschau bei den einzelnen Spielen gäbe.
-- 
+  
 - Ich als Pflegekraft, würde es gut finden, wenn das erstellen der Spiele einfoch über eine Website möglich ist.
 
 - Als Angehöriger einen Heimbewohners, würde ich es gut finden wenn das hinzufügen der persöhnlichen Memoriebilder simple über die Website möglich ist.
@@ -19,6 +19,8 @@ Samuel Atzlesberger, Michael Werner, Marcus Rabeder, Vincent Eichinger
 - Als Pflegekraft, wäre es eine große Hilfe, wenn das anpassen der Spiele über die Website möglich wäre.
 
 - Als Bewohner möchte ich auch vorgefertigte Bewegungskoreografien haben.
+
+- Als Physiotherapoit wäre es toll wenn ich fixe Bewegungsabläufe über die Website hochladen könnte, welche der Pepper dan ausführen kann.
 
 
 
