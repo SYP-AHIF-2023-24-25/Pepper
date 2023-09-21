@@ -10,7 +10,7 @@ Samuel Atzlesberger, Michael Werner, Marcus Rabeder, Vincent Eichinger
 
 - Als Enkel, möchte ich ganz einfach auf einer Website ein Spiel für meinen Opa erstellen können.
 
-- Als Pflegekraft, die viel mit dem Pepperroboter arbeitet, würde es mir helfen, wenn es Vorschaubilder bei den einzelnen Spielen gäbe.
+- Als Pflegekraft, die viel mit dem Pepperroboter arbeitet, würde es mir helfen, wenn es eine Vorschau bei den einzelnen Spielen gäbe.
 
 - Als Enkel von einem Bewohner möchte ich zwischen verschiedenen Spielen auswählen können, wobei ich dann nur mehr die Bilder hinzufügen brauche.
 
