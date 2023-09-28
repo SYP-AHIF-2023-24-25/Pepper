@@ -22,7 +22,7 @@ Verwenden Sie ein Dokumentenformat Ihrer Wahl, aber halten Sie die Vorgaben zur 
 
 
 
-Wie wäre es denn, wenn man einen Roboter hätte der die Pflegekräft für eine kurze Zeit entlasstet und die Bewohner des Altenheims spielerisch unterhält. Er könnte die Pflegekräft für eine kurze Zeit eintlassten und sie können sich ein bisschen erholen. Auch der wöchentliche Therapeut muss nicht umbedingt erscheinen um seine Übungen mit den Senioren zu machen. Dies könnte acuh der Pepper übernehmen. Ebenso können sich die Bewohner des Altenheims zu jeder Zeit mit dem Pepper unterhalten und Mitmach Spiele mit ihm spielen. 
+Wie wäre es denn, wenn man einen Roboter hätte der die Pflegekräft für eine kurze Zeit entlasstet und die Bewohner des Altenheims spielerisch unterhält. Er könnte die Pflegekräft für eine kurze Zeit eintlassten und sie können sich ein bisschen erholen. Auch der wöchentliche Therapeut muss nicht umbedingt erscheinen um seine Übungen mit den Senioren zu machen. Dies könnte auch der Pepper übernehmen. Ebenso können sich die Bewohner des Altenheims zu jeder Zeit mit dem Pepper unterhalten und Mitmach Spiele mit ihm spielen. 
 <!--
 > - Beschreiben Sie hier die Probleme und Verbesserungspotenziale in bezug auf die Istsituation.
 > - Es sollte dabei klar werden, dass unbedingt Handlungsbedarf besteht! -->
