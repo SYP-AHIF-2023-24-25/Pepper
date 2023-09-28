@@ -10,9 +10,9 @@ Samuel Atzlesberger, Michael Werner, Marcus Rabeder, Vincent Eichinger
   
 - Als Pflegekraft, die viel mit dem Pepperroboter arbeitet, würde es mir helfen, wenn es eine Vorschau bei den einzelnen Spielen gäbe.
   
-- Ich als Pflegekraft, würde es gut finden, wenn das erstellen der Spiele einfoch über eine Website möglich ist.
+- Ich als Pflegekraft, würde es gut finden, wenn das erstellen der Spiele einfach über eine Website möglich ist.
 
-- Als Angehöriger einen Heimbewohners, würde ich es gut finden wenn das hinzufügen der persöhnlichen Memoriebilder simple über die Website möglich ist.
+- Als Angehöriger einen Heimbewohners, würde ich es gut finden wenn das hinzufügen der persöhnlichen Memoriebilder einfach über die Website möglich ist.
 
 - Als Bewohner eines Seniorenheims würde ich es gut finden, wenn die Spiele und Bewegungskoreografien langsam und verständlich aufgebaut sind.
 
