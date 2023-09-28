@@ -16,7 +16,7 @@ Samuel Atzlesberger, Michael Werner, Marcus Rabeder, Vincent Eichinger
 
 - Als Bewohner eines Seniorenheims würde ich es gut finden, wenn die Spiele und Bewegungskoreografien langsam und verständlich aufgebaut sind.
 
-- Als Pflegekraft, wäre es eine große Hilfe, wenn das anpassen der Spiele über die Website möglich wäre.
+- Als Pflegekraft, wäre es eine große Hilfe, wenn das anpassen der Memories über die Website möglich wäre.
 
 - Als Bewohner möchte ich auch vorgefertigte Bewegungskoreografien haben.
 
