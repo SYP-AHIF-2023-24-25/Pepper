@@ -12,7 +12,7 @@ Samuel Atzlesberger, Michael Werner, Marcus Rabeder, Vincent Eichinger
   
 - Ich als Pflegekraft, würde es gut finden, wenn das erstellen der Spiele einfach über eine Website möglich ist.
 
-- Als Angehöriger einen Heimbewohners, würde ich es gut finden wenn das hinzufügen der persöhnlichen Memoriebilder einfach über die Website möglich ist.
+- Als Angehöriger einen Heimbewohners, würde ich es gut finden wenn das Hinzufügen der persöhnlichen Memoriebilder einfach über die Website möglich ist.
 
 - Als Bewohner eines Seniorenheims würde ich es gut finden, wenn die Spiele und Bewegungskoreografien langsam und verständlich aufgebaut sind.
 
