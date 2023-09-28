@@ -14,12 +14,26 @@ Samuel Atzlesberger, Michael Werner, Marcus Rabeder, Vincent Eichinger
 
 - Als Bewohner eines Altersheims möchte ich per Gesichtserkennung ein personalisiertes Memorie bekommen.
 
+<<<<<<< HEAD
 - Als Physiotherapeut wäre es toll wenn ich die vorgefärtigten Bewegungs Choreographien über die Website auswählen und der Pepper dann ausführen kann.
 
 - Als Bewohner eines Seniorenheims würde ich es gut finden wenn die Bewegungs Choreographie langsam und verständlich aufgebaut sind.
 
 - Ich als Pflegekraft möchte über die Website Mitmachspiele erstellen und sie auf dem Pepper anzeigen lassen
 
+=======
+- Als Bewohner möchte ich auch vorgefertigte Bewegungskoreografien haben.
+
+- Als Bewohner eines Seniorenheims würde ich es gut finden, wenn die Spiele und Bewegungskoreografien langsam und verständlich aufgebaut sind.
+  
+- Als Pflegekraft, die viel mit dem Pepperroboter arbeitet, würde es mir helfen, wenn es eine Vorschau bei den einzelnen Spielen gäbe.
+  
+- Ich als Pflegekraft, würde es gut finden, wenn das erstellen eines Memories einfach über eine Website möglich ist.
+
+- Als Pflegekraft, wäre es eine große Hilfe, wenn das anpassen der Memories über die Website möglich wäre.
+
+- Als Angehöriger einen Heimbewohners, würde ich es gut finden wenn das Hinzufügen der persöhnlichen Memoriebilder einfach über die Website möglich ist.
+>>>>>>> f61c1c4bf5dcb5fd39825627a70fdcb3086a44b3
 
 
 
