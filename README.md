@@ -6,21 +6,21 @@ Samuel Atzlesberger, Michael Werner, Marcus Rabeder, Vincent Eichinger
 
 ## User Stories
 
+- Als Besucher, am Tag der offenen Tür von der HTL-Leonding, möchte ich lustige und coole Bewegungs Choreopraphien vorgestellt bekommen.
+
+- Als Besucher, am Tag der offenen Tür von der HTL-Leonding, wäre es unterhaltsam, wenn ich ein Spiel (4 gewinnt), auf dem Pepper mit meinem Freund spielen kann.
+
+- Als Angehöriger eines Heimbewohners, würde ich es gut finden wenn das hinzufügen der persöhnlichen Memoriebilder einfach über die Website möglich ist.
+
 - Als Bewohner eines Altersheims möchte ich per Gesichtserkennung ein personalisiertes Memorie bekommen.
-  
-- Als Pflegekraft, die viel mit dem Pepperroboter arbeitet, würde es mir helfen, wenn es eine Vorschau bei den einzelnen Spielen gäbe.
-  
-- Ich als Pflegekraft, würde es gut finden, wenn das erstellen der Spiele einfoch über eine Website möglich ist.
 
-- Als Angehöriger einen Heimbewohners, würde ich es gut finden wenn das hinzufügen der persöhnlichen Memoriebilder simple über die Website möglich ist.
+- Als Physiotherapeut wäre es toll wenn ich die vorgefärtigten Bewegungs Choreographien über die Website auswählen und der Pepper dann ausführen kann.
 
-- Als Bewohner eines Seniorenheims würde ich es gut finden, wenn die Spiele und Bewegungskoreografien langsam und verständlich aufgebaut sind.
+- Als Bewohner eines Seniorenheims würde ich es gut finden wenn die Bewegungs Choreographie langsam und verständlich aufgebaut sind.
 
-- Als Pflegekraft, wäre es eine große Hilfe, wenn das anpassen der Spiele über die Website möglich wäre.
+- Ich als Pflegekraft möchte über die Website Mitmachspiele erstellen und sie auf dem Pepper anzeigen lassen
 
-- Als Bewohner möchte ich auch vorgefertigte Bewegungskoreografien haben.
 
-- Als Physiotherapoit wäre es toll wenn ich fixe Bewegungsabläufe über die Website hochladen könnte, welche der Pepper dan ausführen kann.
 
 
 
