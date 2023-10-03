@@ -14,14 +14,14 @@ Samuel Atzlesberger, Michael Werner, Marcus Rabeder, Vincent Eichinger
 
 - Als Bewohner eines Altersheims möchte ich per Gesichtserkennung ein personalisiertes Memorie bekommen.
 
-<<<<<<< HEAD
+
 - Als Physiotherapeut wäre es toll wenn ich die vorgefärtigten Bewegungs Choreographien über die Website auswählen und der Pepper dann ausführen kann.
 
 - Als Bewohner eines Seniorenheims würde ich es gut finden wenn die Bewegungs Choreographie langsam und verständlich aufgebaut sind.
 
 - Ich als Pflegekraft möchte über die Website Mitmachspiele erstellen und sie auf dem Pepper anzeigen lassen
 
-=======
+
 - Als Bewohner möchte ich auch vorgefertigte Bewegungskoreografien haben.
 
 - Als Bewohner eines Seniorenheims würde ich es gut finden, wenn die Spiele und Bewegungskoreografien langsam und verständlich aufgebaut sind.
