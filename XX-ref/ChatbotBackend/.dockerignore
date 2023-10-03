@@ -1,0 +1,7 @@
+# Directories
+bin
+.vscode
+obj
+
+# Files
+appsettings.Development.json

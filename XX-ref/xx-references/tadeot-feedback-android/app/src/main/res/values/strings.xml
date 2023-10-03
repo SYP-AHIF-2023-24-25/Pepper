@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">TadeotFeedback</string>
+    <string name="txt_hello_world">Hallo Welt!</string>
+    <string name="txt_hello_world2">Hello World2</string>
+    <string name="txt_hello_world_button">Hello World Button</string>
+    <string name="title_activity_bye">ByeActivity</string>
+    <string name="title_activity_rate">Rate</string>
+    <string name="questions">TextView</string>
+    <string name="standort">StandortName</string>
+    <string name="txt_subtitle_text">SubTitle</string>
+    <string name="txt_title_text">Title</string>
+    <string name="txt_departmenticons">Departmenticons</string>
+    <string name="txt_htl_logo">Htl Logo</string>
+    <string name="title_activity_details">DetailsActivity</string>
+    <string name="tv_server_ipadress">Server Ipadresse</string>
+    <string name="tv_server_port">Server Portnummer</string>
+    <string name="save_settings">Save Settings</string>
+    <string name="test_connection">test connection</string>
+</resources>
