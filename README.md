@@ -6,7 +6,6 @@ Samuel Atzlesberger, Michael Werner, Marcus Rabeder, Vincent Eichinger
 
 ## User Stories
 
-
 Als Besucher, am Tag der offenen Tür von der HTL-Leonding, möchte ich mich mit dem Pepper interaktiv beschäftigen um so seine Fähigkeiten kennenzulernen. 
 
 Als Besucher, am Tag der offenen Tür von der HTL-Leonding, möchte ich lustige und coole Bewegungs Choreopraphien vorgestellt bekommen.
@@ -22,3 +21,5 @@ Als Physiotherapeut wäre es toll, wenn ich die vorgefärtigten Bewegungs-Choreo
 Als Bewohner eines Seniorenheims würde ich es gut finden wenn die Bewegungs Choreographie langsam und verständlich aufgebaut sind.
 
 Ich als Pflegekraft möchte über die Website Mitmachspiele erstellen und sie auf dem Pepper anzeigen lassen
+
+  
