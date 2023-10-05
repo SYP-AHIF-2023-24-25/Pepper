@@ -16,9 +16,9 @@ Als Angehöriger eines Heimbewohners, würde ich es gut finden wenn das hinzufü
 
 Als Bewohner eines Altersheims möchte ich per Gesichtserkennung ein personalisiertes Memorie bekommen.
 
-Als Physiotherapeut wäre es toll, wenn ich die vorgefärtigten Bewegungs-Choreographien über die Website auswählen kann, die der Pepper dann ausführt.
-
 Als Bewohner eines Seniorenheims würde ich es gut finden wenn die Bewegungs Choreographie langsam und verständlich aufgebaut sind.
+
+Als Physiotherapeut wäre es toll, wenn ich die vorgefärtigten Bewegungs-Choreographien über die Website auswählen kann, die der Pepper dann ausführt.
 
 Ich als Pflegekraft möchte über die Website Mitmachspiele erstellen und sie auf dem Pepper anzeigen lassen
 
