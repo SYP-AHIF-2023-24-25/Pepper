@@ -1,0 +1,19 @@
+mat-grid-tile{
+  //border: solid 2px black;
+
+}
+
+google-chart{
+  width: 50vw;
+  height: 50vh;
+}
+
+.grid {
+  height: 70%;
+  position: absolute;
+  //margin-left: 20%;
+  top: 50%;
+  width: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

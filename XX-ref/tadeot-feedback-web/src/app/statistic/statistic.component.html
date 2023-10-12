@@ -1,0 +1,45 @@
+<mat-card style="margin:2%">
+  <mat-card-header>
+    <mat-card-title>
+      Feedback - Auswertung
+    </mat-card-title>
+  </mat-card-header>
+</mat-card>
+<mat-grid-list *ngIf="hasResults == false" class="grid" cols="1" rowHeight="fit">
+  <mat-grid-tile>
+    <h1>{{questions[current].title}} </h1>
+
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <h2>{{questions[current].subTitle}}</h2>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <h3>Keine Antworten</h3>
+  </mat-grid-tile>
+</mat-grid-list>
+
+
+<mat-grid-list *ngIf="hasResults == true" [cols]="getColumnCount()" rowHeight="fit" class="grid">
+
+  <mat-grid-tile *ngIf="data">
+    <google-chart [type]="pieChartType" [options]="yesNoOptions" [data]="data" #mainChart></google-chart>
+  </mat-grid-tile>
+  <mat-grid-tile *ngIf="hasDetails">
+    <google-chart [options]="detailsOptions" [type]="columnChartType" #detailsChart [columns]="['Detail', 'Anzahl']"
+      [data]="detailsData"></google-chart>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div class="statistic">
+  <img src="assets/htllogo_2022_black.png" width="20%" style="float:left">
+  <div style="float:right">
+    <button *ngIf="hasPrevious()" style="margin-right: 10px" mat-raised-button (click)="previous()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    {{ current + 1}} / {{ questions.length}}
+    <button *ngIf="hasNext()" style="margin-left: 10px" mat-raised-button (click)="next()">
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+  </div>
+
+</div>

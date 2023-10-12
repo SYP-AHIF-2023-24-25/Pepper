@@ -1,0 +1,38 @@
+<!-- <div class="top">
+  <img src="assets/htllogo_2022_black.png">
+  <div>
+    <mat-card>
+      <mat-card-content>
+        <div *ngIf="token != null" style="font-size: 2vw">
+          Danke, wir haben dein Feedback am {{ this.timeSent | date:'dd.MM.yyyy, HH:mm' }} erhalten! </div>
+        <button *ngIf="token == null" mat-raised-button color="primary"
+          style="font-size: 3vw; margin-top:2%; padding:2%" (click)="router.navigate(['question'])">Start
+          Exit-Poll Feedback</button>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+
+</div> -->
+
+<mat-grid-list class="grid" cols="1" rowHeight="fit">
+  <mat-grid-tile> <img src="assets/htllogo_2022_black.png" width="70%"></mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card *ngIf="token != null">
+      <mat-card-content>
+        <div style="font-size: 2vw">
+          Danke, wir haben dein Feedback am {{ this.timeSent | date:'dd.MM.yyyy, HH:mm' }} erhalten! </div>
+      </mat-card-content>
+    </mat-card>
+    <button mat-raised-button *ngIf="token == null" style="font-size: 3vw; padding: 1em;"
+      (click)="router.navigate(['question'])">
+      <mat-icon>arrow_forward</mat-icon> Start Feedback
+    </button>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- <div class="statistic">
+  <button mat-raised-button style="float:right" (click)="router.navigate(['statistic'])">
+    Statistik
+  </button>
+</div> -->

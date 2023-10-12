@@ -1,0 +1,29 @@
+<mat-grid-list *ngIf="showSpinner" cols="1" rowHeight="fit" class="grid">
+  <mat-grid-tile>
+    <mat-spinner></mat-spinner>
+  </mat-grid-tile>
+</mat-grid-list>
+<div *ngIf="question !== undefined">
+
+
+  <mat-grid-list *ngIf="!showSpinner" rowHeight="5em" [cols]="options.length" class="grid">
+
+    <mat-grid-tile [colspan]="options.length" rowspan="2">
+      <div class="title">
+        {{ title}}
+      </div>
+
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="question.subTitle" [colspan]="options.length">
+      <div class="sub-title">
+        {{ question.subTitle}}
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile *ngFor="let o of options; let i = index" rowspan="3">
+
+      <button mat-raised-button (click)="answer(i)" class="option">{{o}}</button>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>

@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.statistic{
+  bottom: 1.25%;
+  margin-bottom: 5px;
+  position: absolute;
+  width: 96%;
+  left: 2%;
+  right: 2%;
+  z-index: 30;
+}

@@ -1,0 +1,38 @@
+.center {
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+  //transform: translate(-50%, -50%)
+}
+
+.top {
+  margin-top: 5em;
+  margin-left: 10%;
+  margin-right: 10%;
+  //text-align: center;
+}
+
+mat-grid-tile{
+  //border: solid 2px black;
+
+}
+
+.mat-card{
+  width: 70%;
+}
+.mat-card-content {
+  justify-content: center;
+}
+
+.grid {
+  height: 70%;
+  position: absolute;
+  //margin-left: 20%;
+  top: 50%;
+  width: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
