@@ -6,20 +6,27 @@ Samuel Atzlesberger, Michael Werner, Marcus Rabeder, Vincent Eichinger
 
 ## User Stories
 
-Als Besucher, am Tag der offenen Tür von der HTL-Leonding, möchte ich mich mit dem Pepper interaktiv beschäftigen um so seine Fähigkeiten kennenzulernen. 
+Besucher haben die Möglichkeit am Tag der offenen Tür, Spiele wie Tic Tac Toe oder 4 Gewinnt gegen den Pepper zu spielen.
 
-Als Besucher, am Tag der offenen Tür von der HTL-Leonding, möchte ich lustige und coole Bewegungs Choreopraphien vorgestellt bekommen.
 
-Als Besucher, am Tag der offenen Tür von der HTL-Leonding, wäre es unterhaltsam, wenn ich ein Spiel (4 gewinnt), auf dem Pepper mit meinem Freund spielen kann.
+Besucher werden auch die Chance haben, Tic Tac Toe / 4 Gewinnt gegen ihre Freunde am Pepper zu Spielen.
 
-Als Angehöriger eines Heimbewohners, würde ich es gut finden wenn das hinzufügen der persöhnlichen Memoriebilder einfach über die Website möglich ist.
 
-Als Bewohner eines Altersheims möchte ich per Gesichtserkennung ein personalisiertes Memorie bekommen.
+Besucher haben die Möglichkeit am Tag der offenen Tür, einen Feedbackbogen zu ihrem Tag an der HTL auszufüllen.
 
-Als Bewohner eines Seniorenheims würde ich es gut finden wenn die Bewegungs Choreographie langsam und verständlich aufgebaut sind.
 
-Als Physiotherapeut wäre es toll, wenn ich die vorgefärtigten Bewegungs-Choreographien über die Website auswählen kann, die der Pepper dann ausführt.
+Als Besucher hat man die Möglichkeit am Tag der offenen Tür, dem Pepper beim Tanzen von modernen Tänzen zuzuschauen.
 
-Ich als Pflegekraft möchte über die Website Mitmachspiele erstellen und sie auf dem Pepper anzeigen lassen
+
+Angehörige sollen personalisierte Bilder für ein personalisiertes Memorie hochladen können.
+
+
+Die Bewohner sollen per Gesichtserkennung von Pepper erkannt werden und personalisierte Inhalte angezeigt bekommen.
+
+
+Der Physiotherapeut hat die Möglichkeit Bewegungschoreographien über eine Website auszuwählen und am Pepper abzuspielen.
+ 
+
+Pflegekräfte haben die Möglichkeit, in einer Website Mitmachspieler zu erstellen und am Pepper anzeigen zu lassen.
 
   
