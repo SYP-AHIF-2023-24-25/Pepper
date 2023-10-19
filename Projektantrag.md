@@ -11,19 +11,17 @@
 
 ### 1.1. Ist-Situation
 
-Vielen von uns ist bekannt, dass es im Seniorenheim ziemlich langweilig ist. Das ist auch den Senioren und Seniorinnen bewusst. Das Personal ist unterbesetzt, und sie können sich nicht auf jeden einzelnen fokussieren. Es gibt keine ruhige Minute für die Pflegekräfte, und die Bewohner sitzen meistens nur herum und langweilen sich.
+Es gibt bereits mitmach Spiele - Geschichten, aber leider nur vorgefertigt im Pepper. Doch es gibt noch keine Möglichkeit, dass die Angehörigen über eine Website die Memories erstellen können. 
 
-Am Tag der offenen Tür sehen junge Menschen wenig Roboter. Deshalb spielt der Pepper Roboter an der HTL Leonding eine wesentliche Rolle. Pepper zeigt von seinen Funktionen relativ wenig, und ist besonders für Kinder kaum überzeugend gewesen. Der Roboter war hier immer nur für das Feedback einholen zuständig, aber das schöpft noch nicht sein ganzes Potenzial aus. Pepper hat allerdings noch viele weitere Funktionen, die auch für den Tag der Offenen Tür an der HTL Leonding genutzt werden können, um junge Menschen anzulocken.
+Am Tag der offenen Tür gab es bereits einmal einen Pepper Roboter, der für das einholen der Feedbacks zuständig war, aber wegen der fehlenden Internetverbindung, konnten die nicht gespeichert werden.
 
 <!-- Hier wird zuerst das Projektumfeld geklärt: Geht es um den Imkerverein oder das Schulbuffet der HTL Leonding? - Beschreiben Sie die Istsituation: Um welche Aktivitäten/Abläufe handelt es sich?-->
 
 ### 1.2. Verbesserungspotenziale
 
-Wie wäre es denn, wenn man einen Roboter hätte, der die Pflegekräfte für eine kurze Zeit entlastet und die Bewohner des Altenheims spielerisch unterhält? Er könnte die Pflegekräfte für eine kurze Zeit entlasten, und sie können sich ein bisschen erholen. Auch der wöchentliche Therapeut muss nicht unbedingt erscheinen, um seine Übungen mit den Senioren zu machen. Dies könnte auch der Pepper übernehmen. Ebenso können sich die Bewohner des Altenheims zu jeder Zeit mit dem Pepper unterhalten und Mitmachspiele mit ihm spielen.
+Man sollte die Memories und vorgefertigte physio Übungen auf einer Website erstellen und auswählen können, die sich der Pepper Roboter dann herunterladet und so ausführen kann, die Memories sollten auf der Website mit einem upload von Bildern von den jeweiligen Senioren erstellt werden.
 
-
-
-Ein Roboter, welcher neugierigen Jugendliche zeigt, welche Funktionen man ausführen kann, würde diese überzeugen unsere Schule zu besuchen. Der Roboter könnte Musik, welche natürlich auf Jugendliche ausgerichtet ist, abspielen und währendessen Tanzbewegungen ausführen. Zudem könnten Spiele, die man zu zweit oder alleine mit den Roboter, ebenfalls Kinder von der HTL Leonding überzeugen.
+Deswegen muss man die Daten die vom Feedback geladen werden am Pepper lokal speichern. Auch ein Spiel wo man gegen seinen Freund spielen kann und eine Choreographie sollte vorhanden sein.
 
 <!--
 
