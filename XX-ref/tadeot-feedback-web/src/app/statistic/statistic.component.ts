@@ -86,6 +86,7 @@ export class StatisticComponent implements OnInit {
 
   async showQuestion() {
     const results = await this.restService.getAnswerResults(this.questions[this.current].number).toPromise();
+    
     this.hasResults = results!.mainResult.length > 0;
     console.log(results);
     if (results) {

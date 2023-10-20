@@ -41,12 +41,13 @@ export class RestService {
 
   constructor(
     private http: HttpClient) {
-    this.baseUrl = environment.httpUrl;
+    this.baseUrl = "https://vm64.htl-leonding.ac.at/tadeot-backend/api/";
   }
   getQuestions(): Observable<Question[]> {
     let headers: HttpHeaders = new HttpHeaders();
+    console.log(this.baseUrl);
     return this.http.get<Question[]>(
-      this.baseUrl + 'Questions',
+      this.baseUrl + 'questions',
       { headers });
   }
 
