@@ -31,7 +31,7 @@ Deswegen muss man die Daten die vom Feedback geladen werden am Pepper lokal spei
 ## 2. Zielsetzung
 
 
-Pepper soll körperliche und geistige Anreize dies durch Sitztänze und verschiedene Minispiele schaffen. Um dies zu erreichen, sollte der Therapeut seine Bewegungen mithilfe der Website online erstellen können, sodass die Pflegekräfte sie im Altenheim abspielen können. Die Angehörigen von den Altersheimbewohnern können Memorie-Spiele von ihnen erstellen, indem sie nur Fotos von dem jeweiligen in die Website hochladen.
+Pepper soll körperliche und geistige Anreize durch Sitztänze und verschiedene Minispiele schaffen. Um dies zu erreichen, sollte der Therapeut seine Bewegungen mithilfe der Website online auswählen können, sodass die Pflegekräfte sie im Altenheim abspielen können. Die Angehörigen von den Altersheimbewohnern können Memorie-Spiele von ihnen erstellen, indem sie nur Fotos von dem jeweiligen in die Website hochladen.
 
 Unser Ziel des Projekts ist, dass unser Roboter, auch genannt Pepper, durch verschiedene Funktionen, wie das Abspielen von Musik oder das Ausführen von Bewegungen, Jugendliche beeindruckt und sie davon überzeugt, die HTL Leonding zu besuchen. Um das zu erreichen, wollen wir online die Bewegungen mithilfe der Website erstellen können, sodass man diese am Tag der offenen Tür abspielen kann. Weiters sollten Jugendliche auf den Pepper zu zweit oder alleine mit dem Pepper Tic-Tac-Toe oder Vier-gewinnt spielen.
 
