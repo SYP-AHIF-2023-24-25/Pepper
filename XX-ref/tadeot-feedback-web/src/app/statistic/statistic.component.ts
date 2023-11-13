@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChartType, GoogleChartComponent } from 'angular-google-charts';
-import { Question, RestService, Result } from 'src/services/rest.service';
+import { AnswerResults, Question, RestService, Result } from 'src/services/rest.service';
 
 @Component({
   selector: 'app-statistic',
@@ -16,6 +16,8 @@ export class StatisticComponent implements OnInit {
   }
   columnChartType = ChartType.ColumnChart;
   hasDetails = false;
+
+
 
   @ViewChild('mainChart') mainChartElement!: GoogleChartComponent | undefined;
   @ViewChild('detailsChart') detailsChartElement!: GoogleChartComponent | undefined;
@@ -63,6 +65,8 @@ export class StatisticComponent implements OnInit {
       //console.log(this.questions);
       this.next();
     }
+
+    this.getQuestions();
   }
 
   hasNext() {
@@ -86,7 +90,8 @@ export class StatisticComponent implements OnInit {
 
   async showQuestion() {
     const results = await this.restService.getAnswerResults(this.questions[this.current].number).toPromise();
-    
+    console.log(results);
+    console.log(this.questions);
     this.hasResults = results!.mainResult.length > 0;
     console.log(results);
     if (results) {
@@ -120,6 +125,21 @@ export class StatisticComponent implements OnInit {
     }
   }
 
+  allAnswers: AnswerResults[] = [];
+
+  async getQuestions(){
+
+    
+
+    for(let i = 0; i < this.questions.length; i++){
+      const results = await this.restService.getAnswerResults(this.questions[i].number).toPromise();
+      this.allAnswers.push(results!);
+    }
+
+    console.log(this.allAnswers);
+
+   
+  }
   async next() {
     this.current++;
     await this.showQuestion();

@@ -1,45 +1,142 @@
-<mat-card style="margin:2%">
-  <mat-card-header>
-    <mat-card-title>
-      Feedback - Auswertung
-    </mat-card-title>
-  </mat-card-header>
-</mat-card>
-<mat-grid-list *ngIf="hasResults == false" class="grid" cols="1" rowHeight="fit">
-  <mat-grid-tile>
-    <h1>{{questions[current].title}} </h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fragen und Antworten</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
 
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <h2>{{questions[current].subTitle}}</h2>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <h3>Keine Antworten</h3>
-  </mat-grid-tile>
-</mat-grid-list>
+<body class="container">
+  
+ 
+
+  <mat-card style="margin:2%">
+    <mat-card-header>
+      <mat-card-title>
+        Feedback - Auswertung
+      </mat-card-title>
+    </mat-card-header>
+  </mat-card>
+  <mat-grid-list *ngIf="hasResults == false" class="grid" cols="1" rowHeight="fit">
+    <mat-grid-tile>
+      <h1>{{questions[current].title}} </h1>
+  
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <h2>{{questions[current].subTitle}}</h2>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <h3>Keine Antworten</h3>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+  
+  <mat-grid-list *ngIf="hasResults == true" [cols]="getColumnCount()" rowHeight="fit" class="grid">
+  
+    <mat-grid-tile *ngIf="data">
+      <google-chart [type]="pieChartType" [options]="yesNoOptions" [data]="data" #mainChart></google-chart>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="hasDetails">
+      <google-chart [options]="detailsOptions" [type]="columnChartType" #detailsChart [columns]="['Detail', 'Anzahl']"
+        [data]="detailsData"></google-chart>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+  <div class="statistic">
+    <img src="assets/htllogo_2022_black.png" width="20%" style="float:left">
+    <div style="float:right">
+      <button *ngIf="hasPrevious()" style="margin-right: 10px" mat-raised-button (click)="previous()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      {{ current + 1}} / {{ questions.length}}
+      <button *ngIf="hasNext()" style="margin-left: 10px" mat-raised-button (click)="next()">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+  
+ 
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>  
+
+  <div class="container mt-4">
+    <h2>Fragen und Antworten</h2>
+
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Frage Nummer</th>
+                <th>Frage Titel</th>
+                <th>Unterfrage </th>
+                <th>Antwort</th>
+                <th>Detailtext </th>
+                <th>Unterfrage </th>
+                <th>Antwort </th>
+                <th>Detailtext</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let answerResult of allAnswers; let i = index">
+                <tr *ngFor="let mainResult of answerResult.mainResult; let j = index">
+                    <td>{{ questions[i].number }}</td>
+                    <td>{{ questions[i].title }}</td>
+                    <td>{{ mainResult.question }}</td>
+                    <td>{{ mainResult.count }}</td>
+                    <td>{{ mainResult.category }}</td>
+                    <td>{{ answerResult.detailResults[j].question }}</td>
+                    <td>{{ answerResult.detailResults[j].count }}</td>
+                    <td>{{ answerResult.detailResults[j].category }}</td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
 
 
-<mat-grid-list *ngIf="hasResults == true" [cols]="getColumnCount()" rowHeight="fit" class="grid">
-
-  <mat-grid-tile *ngIf="data">
-    <google-chart [type]="pieChartType" [options]="yesNoOptions" [data]="data" #mainChart></google-chart>
-  </mat-grid-tile>
-  <mat-grid-tile *ngIf="hasDetails">
-    <google-chart [options]="detailsOptions" [type]="columnChartType" #detailsChart [columns]="['Detail', 'Anzahl']"
-      [data]="detailsData"></google-chart>
-  </mat-grid-tile>
-</mat-grid-list>
-
-<div class="statistic">
-  <img src="assets/htllogo_2022_black.png" width="20%" style="float:left">
-  <div style="float:right">
-    <button *ngIf="hasPrevious()" style="margin-right: 10px" mat-raised-button (click)="previous()">
-      <mat-icon>arrow_back</mat-icon>
-    </button>
-    {{ current + 1}} / {{ questions.length}}
-    <button *ngIf="hasNext()" style="margin-left: 10px" mat-raised-button (click)="next()">
-      <mat-icon>arrow_forward</mat-icon>
-    </button>
+  
   </div>
 
-</div>
+  
+
+  
+  
+
+  
+
+</body>
+
