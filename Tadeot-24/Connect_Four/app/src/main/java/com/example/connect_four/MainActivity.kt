@@ -1,10 +1,14 @@
 package com.example.connect_four
 
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
     private lateinit var boardTableLayout: TableLayout
@@ -40,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             )
 
             for (colIndex in 0 until 7) {
-                val cellButton = Button(this)
+                val cellButton = Button(this, null, android.R.attr.buttonStyleSmall)
                 cellButton.layoutParams = TableRow.LayoutParams(
                     TableRow.LayoutParams.WRAP_CONTENT,
                     TableRow.LayoutParams.WRAP_CONTENT
@@ -175,7 +179,10 @@ class MainActivity : AppCompatActivity() {
                         val cellValue = board[rowIndex][colIndex]
                         cellButton.text = if (cellValue == 1) "X" else if (cellValue == 2) "O" else ""
 
-                        //cellButton.setBackgroundResource(getStyle(cellValue))
+                        if (cellValue == 1 || cellValue == 2) {
+                            val backgroundColor = if (cellValue == 1) Color.RED else Color.BLUE
+                            cellButton.setBackgroundColor(backgroundColor)
+                        }
                     } else {
                         Log.e("ConnectFour", "updateUI: Button at ($rowIndex, $colIndex) is null oder already a winner")
                     }
@@ -184,19 +191,7 @@ class MainActivity : AppCompatActivity() {
                 Log.e("ConnectFour", "updateUI: TableRow at $rowIndex is null")
             }
         }
-
-        // Hier aktualisierst du die Ansicht für den Gewinner
-
     }
-
-
-    /*private fun getStyle(cellValue: Int): Int {
-        return when (cellValue) {
-            1 -> return R.drawable.
-            2 -> return R.drawable.occupied_red_style
-            else -> return R.drawable.empty_cell_style
-        }
-    }*/
 
     private fun showWinMessage() {
         val winner = if (currentPlayer == 1) "Player X" else "Player O"

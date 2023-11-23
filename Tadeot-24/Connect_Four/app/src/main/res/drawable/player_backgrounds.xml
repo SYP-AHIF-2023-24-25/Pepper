@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- res/drawable/player_background_player1.xml -->
+    <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+        <solid android:color="@color/player1_color" /> <!-- Farbe für Spieler 1 -->
+    </shape>
+
+    <!-- res/drawable/player_background_player2.xml -->
+    <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+        <solid android:color="@color/player2_color" /> <!-- Farbe für Spieler 2 -->
+    </shape>
+
+    <!-- res/drawable/player_background_empty_cell.xml -->
+    <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+        <solid android:color="@color/empty_cell_color" /> <!-- Farbe für leere Zellen -->
+    </shape>
+
+</selector>

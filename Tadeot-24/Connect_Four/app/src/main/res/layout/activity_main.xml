@@ -45,4 +45,21 @@
         android:textStyle="italic"
         android:visibility="invisible" />
 
+
+    <Button
+        android:id="@+id/player1Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible"/>
+
+    <!-- Spieler 2 Hintergrund -->
+    <Button
+        android:id="@+id/player2Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible" />
+
+
 </RelativeLayout>
