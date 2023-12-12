@@ -3,11 +3,13 @@ package at.leonding.htl.tadeotfeedback
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
+import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.GridLayout
 import android.widget.LinearLayout
 import at.leonding.htl.tadeotfeedback.entities.Answer
 import at.leonding.htl.tadeotfeedback.entities.Question
@@ -23,11 +25,17 @@ class DetailsActivity : AppCompatActivity() {
 
     private lateinit var _buttonsList : List<Button>
 
+    private lateinit var gridLayout: GridLayout;
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
+
+        this.gridLayout = findViewById<GridLayout>(R.id.buttonsContainer)
+
+
 
 
         _buttonsList = listOf<Button>(btn_1,btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9, btn_10, btn_11, btn_12) as MutableList<Button>
@@ -40,6 +48,7 @@ class DetailsActivity : AppCompatActivity() {
         showButtons("option")
     }
 
+
     private fun showButtons(options: String) {
         hideAllButtons()
         val details: List<String>;
@@ -51,12 +60,30 @@ class DetailsActivity : AppCompatActivity() {
         else{
             details = Repository.getCurrentOptoins();
         }
+
+
+        this.gridLayout.removeAllViews();
+
         for ((index, detail) in details.withIndex()) {
             if (index < _buttonsList.size) {
-                val button = _buttonsList[index]
+                val button = Button(this) // Create a new Button dynamically
                 button.text = detail
-                button.visibility = View.VISIBLE
                 button.setOnClickListener { onDetailClick(it) }
+
+                button.setBackgroundColor(resources.getColor(android.R.color.holo_blue_light))
+
+
+                val params = GridLayout.LayoutParams()
+                params.width = GridLayout.LayoutParams.WRAP_CONTENT
+                params.height = GridLayout.LayoutParams.WRAP_CONTENT
+                params.setMargins(8, 8, 8, 8)  // Optional: Set the margins between buttons
+
+                button.layoutParams = params
+
+                this.gridLayout.addView(button)
+
+
+
             }
         }
     }
@@ -84,7 +111,7 @@ class DetailsActivity : AppCompatActivity() {
 
         val btn = view as Button
 
-        if(this.answer != ""){
+        if(this.answer === ""){
             this.answer = btn.text.toString();
         }
         else{
