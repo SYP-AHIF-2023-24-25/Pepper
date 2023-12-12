@@ -1,11 +1,18 @@
 package com.example.connect_four
 
+import android.animation.Animator
+import android.animation.ObjectAnimator
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.view.animation.DecelerateInterpolator
+import android.view.animation.TranslateAnimation
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -15,6 +22,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var restartButton: Button
     private lateinit var winnerTextView: TextView
     private var currentPlayer: Int = 1
+    private lateinit var lastPlayedButton: Button
+    private var lowestEmptyRow: Int = -1
+    private lateinit var currentImageView: ImageView
+    private val buttonBackgrounds: MutableList<Drawable?> = mutableListOf()
+
+
+
 
     // Beispiel-Daten, du wirst deine eigene Logik dafür haben
     private val board: Array<Array<Int>> = Array(6) { Array(7) { 0 } }
@@ -35,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     private fun initializeBoard() {
         for (rowIndex in 0 until 6) {
             val tableRow = TableRow(this)
@@ -49,7 +64,6 @@ class MainActivity : AppCompatActivity() {
                     TableRow.LayoutParams.WRAP_CONTENT,
                     TableRow.LayoutParams.WRAP_CONTENT
                 )
-
                 // Hier setzt du die Klasse basierend auf deiner Logik
                 //cellButton.setBackgroundResource(getStyle(rowIndex, colIndex))
 
@@ -60,11 +74,8 @@ class MainActivity : AppCompatActivity() {
 
                 tableRow.addView(cellButton)
             }
-
             boardTableLayout.addView(tableRow)
         }
-
-
     }
 
 
@@ -120,6 +131,93 @@ class MainActivity : AppCompatActivity() {
         // Alle Zellen sind belegt, das Spielfeld ist vollständig belegt
         return true
     }
+
+    /*private fun animateDrop(rowIndex: Int, colIndex: Int) {
+        val imageView = ImageView(this)
+        val params = TableRow.LayoutParams(
+            TableRow.LayoutParams.WRAP_CONTENT,
+            TableRow.LayoutParams.WRAP_CONTENT
+        )
+        params.height = boardTableLayout.getChildAt(0).height // Höhe des TableRow
+
+        val drawableResId = if (currentPlayer == 1) R.drawable.ic_x else R.drawable.ic_o
+        imageView.setImageResource(drawableResId)
+        imageView.layoutParams = params
+
+        val tableRow = boardTableLayout.getChildAt(0) as TableRow
+        tableRow.addView(imageView, colIndex)
+
+        // Zielposition des Bildes
+        val targetY = (lowestEmptyRow * params.height).toFloat()
+
+        // Animation
+        val anim = ObjectAnimator.ofFloat(imageView, "translationY", 0f, targetY)
+        anim.duration = 500
+        anim.interpolator = DecelerateInterpolator()
+
+        anim.addListener(object : Animator.AnimatorListener {
+            override fun onAnimationStart(animation: Animator) {}
+
+            override fun onAnimationEnd(animation: Animator) {
+                tableRow.removeView(imageView)
+                lastPlayedButton = tableRow.getChildAt(colIndex) as Button
+                showXorO(rowIndex, colIndex)
+
+                if (rowIndex == lowestEmptyRow) {
+                    if (checkForWin()) {
+                        winner = if (currentPlayer == 1) "Player X" else "Player O"
+                        showWinMessage()
+                    } else if (isBoardFull()) {
+                        showDrawMessage()
+                    } else {
+                        switchPlayer()
+                    }
+
+                    if (winner.isNotEmpty()) {
+                        winnerTextView.text = "Winner: " + if (currentPlayer == 1) "Player X" else "Player O"
+                        winnerTextView.visibility = View.VISIBLE
+                        restartButton.visibility = View.VISIBLE
+                    } else {
+                        winnerTextView.visibility = View.GONE
+                        restartButton.visibility = View.GONE
+                    }
+                }
+            }
+
+            override fun onAnimationCancel(animation: Animator) {}
+
+            override fun onAnimationRepeat(animation: Animator) {}
+        })
+
+        anim.start()
+    }
+
+
+
+    private fun showXorO(rowIndex: Int, colIndex: Int) {
+        val tableRow = boardTableLayout.getChildAt(rowIndex) as TableRow?
+        val cellButton = tableRow?.getChildAt(colIndex) as Button?
+
+        // Erstelle ein ImageView für X oder O
+        val imageView = ImageView(this)
+        val params = TableRow.LayoutParams(
+            TableRow.LayoutParams.WRAP_CONTENT,
+            TableRow.LayoutParams.WRAP_CONTENT
+        )
+        imageView.layoutParams = params
+
+        // Setze das Bild basierend auf dem aktuellen Spieler
+        val drawableResId = if (currentPlayer == 1) R.drawable.ic_x else R.drawable.ic_o
+        imageView.setImageResource(drawableResId)
+
+        // Füge das ImageView zum TableRow hinzu
+        tableRow?.addView(imageView)
+
+        // Verstecke den Button, da das Zeichenobjekt (ImageView) jetzt sichtbar ist
+        cellButton?.visibility = View.INVISIBLE
+    }*/
+
+
 
 
     private fun checkForWin(): Boolean {
@@ -182,6 +280,11 @@ class MainActivity : AppCompatActivity() {
                         if (cellValue == 1 || cellValue == 2) {
                             val backgroundColor = if (cellValue == 1) Color.RED else Color.BLUE
                             cellButton.setBackgroundColor(backgroundColor)
+
+                            if (rowIndex == lowestEmptyRow) {
+                                //animateDrop(rowIndex, colIndex)
+                                //lastPlayedButton = cellButton // Aktualisiere lastPlayedButton
+                            }
                         }
                     } else {
                         Log.e("ConnectFour", "updateUI: Button at ($rowIndex, $colIndex) is null oder already a winner")
@@ -194,11 +297,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showWinMessage() {
-        val winner = if (currentPlayer == 1) "Player X" else "Player O"
+        winner = if (currentPlayer == 1) "Player X" else "Player O"
         showToast("$winner wins!")
     }
 
     private fun showDrawMessage() {
+        winner = "Draw"
         showToast("It's a draw!")
     }
 
@@ -222,10 +326,30 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        for (rowIndex in 0 until 6) {
+            val tableRow = boardTableLayout.getChildAt(rowIndex) as TableRow?
+
+            if (tableRow != null) {
+                for (colIndex in 0 until 7) {
+                    val cellButton = tableRow.getChildAt(colIndex) as Button?
+
+                    // Setze den Text, die Hintergrundfarbe und andere Eigenschaften auf die Werte in der XML
+                    cellButton?.text = ""
+                    cellButton?.visibility = View.VISIBLE
+                    cellButton?.isClickable = true
+                    cellButton?.setBackgroundColor(Color.parseColor("#FFFFFF"))
+
+                }
+            }
+        }
         // Setze den Gewinner zurück
         winner = ""
 
         // Aktualisiere die UI
         updateUI()
+
+        // Deaktiviere die Sichtbarkeit der Winner-Anzeige und des Restart-Buttons
+        winnerTextView.visibility = View.GONE
+        restartButton.visibility = View.GONE
     }
 }
