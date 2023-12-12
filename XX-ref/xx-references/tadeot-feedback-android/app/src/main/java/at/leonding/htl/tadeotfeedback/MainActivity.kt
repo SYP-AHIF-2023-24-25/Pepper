@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import at.leonding.htl.tadeotfeedback.api.BackendService
 import at.leonding.htl.tadeotfeedback.api.GetQuestionsApi
@@ -23,7 +24,9 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.net.InetAddress
+import java.util.*
 import kotlin.concurrent.thread
+import io.reactivex.Observable
 
 
 class MainActivity : AppCompatActivity() {
@@ -32,10 +35,47 @@ class MainActivity : AppCompatActivity() {
     private var _myCompositeDisposable: CompositeDisposable? = null
     private lateinit var _currentQuestion : Question;
 
+    val backendService = BackendService
+    val questionsApi = backendService.getQuestionsApi()
+
+    lateinit var allQustions: List<Question>;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Preferences.setContext(this)
+
+        val compositeDisposable = CompositeDisposable()
+
+        val observable = questionsApi.getQuestions()
+            .subscribeOn(Schedulers.io())
+            .subscribe(
+                { questions ->
+                    // Hier kannst du die Liste von Fragen weiterverarbeiten
+                    questions.forEach {
+                        println("Number: ${it.number}, Title: ${it.title}")
+                    }
+                    allQustions = questions;
+                },
+                { error ->
+                    println("Fehler beim Laden der Fragen: ${error.message}")
+                }
+            )
+
+        compositeDisposable.add(observable)
+        Thread.sleep(5000);
+        _currentQuestion = allQustions[0];
+
+        val titleTextView: TextView = findViewById(R.id.txt_title)
+
+        // Setze den Text des TextView auf den Titel der aktuellen Frage
+        titleTextView.text = _currentQuestion.title
+        txt_sub_title.text = _currentQuestion.subTitle
+
+        Repository.setQuestions(allQustions);
+
+
+        Log.d(LOG_TAG, "${allQustions}")
+
         getSettingsFromDialog()
         Log.d(LOG_TAG, "onCreate() nach getSettings()")
     }
@@ -53,6 +93,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_actionbar, menu)
@@ -61,9 +102,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun getSettingsFromDialog() {
         Preferences.setContext(this)
-        val dialogSettingsView = LayoutInflater.from(this).inflate(R.layout.dialog_settings, null)
-        dialogSettingsView.et_ip_address.setText(Preferences.ipAdress)
-        dialogSettingsView.et_port.setText(Preferences.port.toString())
+        //val dialogSettingsView = LayoutInflater.from(this).inflate(R.layout.dialog_settings, null)
+        //dialogSettingsView.et_ip_address.setText(Preferences.ipAdress)
+
+        //dialogSettingsView.et_port.setText(Preferences.port.toString())
+/*
         val dialogBuilder = AlertDialog.Builder(this)
                 .setView(dialogSettingsView)
                 .setTitle("Settings")
@@ -96,14 +139,14 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Connected successfully", Toast.LENGTH_LONG).show()
             else
                 Toast.makeText(this, "Connection failed", Toast.LENGTH_LONG).show()
-        }
+        }*/
     }
 
-    private val BASE_URL = "http://vm64.htl-leonding.ac.at/feedback/api/questions/"
+    private val BASE_URL = "https://vm64.htl-leonding.ac.at/tadeot-backend/api/"
 
     private fun loadQuestions() {
         val requestInterface = Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(BASE_URL + "questions")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
@@ -186,9 +229,9 @@ class MainActivity : AppCompatActivity() {
         } else {
             right_button.setVisibility(View.INVISIBLE)
         }
-        if (currentQuestion.questionType === 0) {
-            txt_title.setText(currentQuestion.titleGerman)
-            txt_sub_title.text = currentQuestion.subTitleGerman
+        if (currentQuestion.number === 0) {
+            txt_title.setText(currentQuestion.title)
+            txt_sub_title.text = currentQuestion.subTitle
             txt_question_counter.text = "${currentQuestion.number}/${Repository.getQuestionsCount()}"
         } else {  // Auswahlfrage
             val detailsActivity = Intent(getApplicationContext(), DetailsActivity::class.java)

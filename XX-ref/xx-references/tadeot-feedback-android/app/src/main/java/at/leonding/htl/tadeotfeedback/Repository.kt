@@ -44,7 +44,7 @@ object Repository {
             for (answer in _answers.values) {
                 addAnswer(answer)
                 postAnswer(answer)
-                Log.d(LOG_TAG, "postAnswers questionNumber: ${answer.questionNumber}, Rating: ${answer.rating}, Detail: ${answer.detailText}")
+                //Log.d(LOG_TAG, "postAnswers questionNumber: ${answer.questionNumber}, Rating: ${answer.rating}, Detail: ${answer.detailText}")
             }
             clearAnswers()
             return true
@@ -52,22 +52,37 @@ object Repository {
         return false
     }
 
-    private fun postAnswer(answer: Answer) {
+     fun postAnswer(answer: Answer) {
         Log.d(LOG_TAG, "postAnswer() ${answer}")
-        BackendService.getQuestionsApi().postAnswer(questionNumber = answer.questionNumber, rating = answer.rating, detail = answer.detailText)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    Toast.makeText(null, it.toString(), Toast.LENGTH_LONG).show();
-                    Log.e(LOG_TAG, "postAnswer() OK, Response from Server: ${it}")
-                }, {
-                    Toast.makeText(null, it.message, Toast.LENGTH_LONG).show();
-                    Log.e(LOG_TAG, "postAnswer() ${it.message}")
-                })
+        BackendService.AddAnswerApi()
+            .addAnswer(
+                Answer(
+                    timestamp = answer.timestamp,
+                    questionText = answer.questionText,
+                    questionId = answer.questionId,
+                    questionNumber = answer.questionNumber,
+                    answer = answer.answer,
+                    detailsQuestion = answer.detailsQuestion,
+                    detailText = answer.detailText
+                )
+            )
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                { response ->
+                    //Toast.makeText(null, response.toString(), Toast.LENGTH_LONG).show()
+                    Log.e(LOG_TAG, "postAnswer() OK, Response from Server: $response")
+                },
+                { error ->
+                    //Toast.makeText(null, error.message, Toast.LENGTH_LONG).show()
+                    Log.e(LOG_TAG, "postAnswer() ${error.message}")
+                }
+            )
     }
 
     private fun addAnswer(answer: Answer) {
         Log.d(LOG_TAG, "addAnswer() ${answer}")
+        /*
         BackendService.getAddAnswerApi().addAnswer(answer)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -77,7 +92,7 @@ object Repository {
                         },
                         {
                             Log.e(LOG_TAG, "addAnswer() ${answer} failed! ${it.message}")
-                        })
+                        })*/
     }
 
     fun getCurrentQuestion(): Question {
@@ -85,28 +100,45 @@ object Repository {
     }
 
     fun setRatingForCurrentQuestion(rating: Int) {
+        /*
         val question = _questions[_currentQuestionNumber]
         if (_answers.containsKey(question)) {
             _answers[question]?.rating = rating
         } else {
             _answers[question] = Answer(question.number, rating)
         }
-        Log.d(LOG_TAG, "setRatingForCurrentQuestion ${question.number}, ${question.titleGerman} ${question.subTitleGerman}: $rating")
+        Log.d(LOG_TAG, "setRatingForCurrentQuestion ${question.number}, ${question.title} ${question.subTitle}: $rating")*/
+    }
+
+    fun getCurrentOptions(): List<String> {
+        val question = _questions[_currentQuestionNumber]
+        return question.options
     }
 
     fun getCurrentDetails(): List<String> {
         val question = _questions[_currentQuestionNumber]
-        return question.detailsGerman
+
+
+        return question.details
+    }
+
+    fun getCurrentOptoins(): List<String> {
+        val question = _questions[_currentQuestionNumber]
+
+
+        return question.options
     }
 
     fun setDetailForCurrentQuestion(detailText: String) {
+        /*
+
         val question = _questions[_currentQuestionNumber]
         if (_answers.containsKey(question)) {
             _answers[question]?.detailText = detailText
         } else {
             _answers[question] = Answer(question.number, detailText = detailText)
         }
-        Log.d(LOG_TAG, "setDetailForCurrentQuestion ${question.titleGerman}: $detailText")
+        Log.d(LOG_TAG, "setDetailForCurrentQuestion ${question.title}: $detailText")*/
     }
 
     /* fun setQuestions() {

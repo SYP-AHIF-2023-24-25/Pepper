@@ -14,9 +14,11 @@ interface GetQuestionsApi {
 
     @POST("answers/postanswer")
     @FormUrlEncoded
-    fun postAnswer(@Field("questionNumber") questionNumber: Int,
-                 @Field("rating") rating: Int,
-                 @Field("detail") detail: String): Flowable<Any>
+    fun postAnswer(
+        @Field("questionNumber") questionNumber: Int,
+        @Field("rating") rating: Int,
+        @Field("detail") detail: String
+    ): Flowable<Any>
 
     @Headers("Content-type: application/json")
     @POST("answers")

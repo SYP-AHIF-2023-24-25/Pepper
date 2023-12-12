@@ -4,12 +4,30 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class Answer (
+        @SerializedName("timestamp")
+        @Expose
+        val timestamp: String,
+
+        @SerializedName("questionText")
+        @Expose
+        val questionText: String,
+
+        @SerializedName("questionId")
+        @Expose
+        val questionId: Int,
+
         @SerializedName("questionNumber")
         @Expose
         val questionNumber: Int,
-        @SerializedName("rating")
+
+        @SerializedName("answer")
         @Expose
-        var rating : Int = 0,
+        val answer: String,
+
+        @SerializedName("detailsQuestion")
+        @Expose
+        val detailsQuestion: String,
+
         @SerializedName("detailText")
         @Expose
-        var detailText : String = "")
+        val detailText: String)
