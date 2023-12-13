@@ -16,6 +16,7 @@ import android.view.animation.TranslateAnimation
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
     private lateinit var boardTableLayout: TableLayout
@@ -26,8 +27,6 @@ class MainActivity : AppCompatActivity() {
     private var lowestEmptyRow: Int = -1
     private lateinit var currentImageView: ImageView
     private val buttonBackgrounds: MutableList<Drawable?> = mutableListOf()
-
-
 
 
     // Beispiel-Daten, du wirst deine eigene Logik dafür haben
@@ -43,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         winnerTextView = findViewById(R.id.winnerTextView)
 
         initializeBoard()
+        saveButtonBackgrounds()
 
         restartButton.setOnClickListener {
             resetGame()
@@ -272,7 +272,7 @@ class MainActivity : AppCompatActivity() {
             if (tableRow != null) {
                 for (colIndex in 0 until 7) {
                     val cellButton = tableRow.getChildAt(colIndex) as Button?
-                    Log.d("Connect-Four", "$cellButton hier gute");
+
                     if (cellButton != null && winner == "") {
                         val cellValue = board[rowIndex][colIndex]
                         cellButton.text = if (cellValue == 1) "X" else if (cellValue == 2) "O" else ""
@@ -315,6 +315,19 @@ class MainActivity : AppCompatActivity() {
         currentPlayer = 3 - currentPlayer
     }
 
+    private fun saveButtonBackgrounds() {
+        for (rowIndex in 0 until 6) {
+            val tableRow = boardTableLayout.getChildAt(rowIndex) as TableRow?
+            if (tableRow != null) {
+                for (colIndex in 0 until 7) {
+                    val cellButton = tableRow.getChildAt(colIndex) as Button?
+                    buttonBackgrounds.add(cellButton?.background?.constantState?.newDrawable())
+                }
+            }
+        }
+    }
+
+
     private fun resetGame() {
         // Hier setzt du das Spiel zurück
         currentPlayer = 1
@@ -328,17 +341,18 @@ class MainActivity : AppCompatActivity() {
 
         for (rowIndex in 0 until 6) {
             val tableRow = boardTableLayout.getChildAt(rowIndex) as TableRow?
-
             if (tableRow != null) {
                 for (colIndex in 0 until 7) {
                     val cellButton = tableRow.getChildAt(colIndex) as Button?
 
-                    // Setze den Text, die Hintergrundfarbe und andere Eigenschaften auf die Werte in der XML
+                    if (cellButton?.text == "X" || cellButton?.text == "O") {
+                        cellButton.background = buttonBackgrounds.removeAt(0)
+                    }
+
+                    // Setze den Text und andere Eigenschaften auf die Werte in der XML
                     cellButton?.text = ""
                     cellButton?.visibility = View.VISIBLE
                     cellButton?.isClickable = true
-                    cellButton?.setBackgroundColor(Color.parseColor("#FFFFFF"))
-
                 }
             }
         }
