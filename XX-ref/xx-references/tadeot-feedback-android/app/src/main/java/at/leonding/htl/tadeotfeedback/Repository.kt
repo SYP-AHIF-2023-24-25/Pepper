@@ -1,5 +1,6 @@
 package at.leonding.htl.tadeotfeedback
 
+import android.support.v7.app.AlertDialog
 import android.util.Log
 import android.widget.Toast
 import at.leonding.htl.tadeotfeedback.api.BackendService
@@ -10,6 +11,8 @@ import io.reactivex.schedulers.Schedulers
 import java.io.BufferedReader
 import java.io.FileInputStream
 import java.io.InputStreamReader
+import kotlin.coroutines.coroutineContext
+import kotlin.system.exitProcess
 
 
 object Repository {
@@ -53,31 +56,29 @@ object Repository {
     }
 
      fun postAnswer(answer: Answer) {
-        Log.d(LOG_TAG, "postAnswer() ${answer}")
-        BackendService.AddAnswerApi()
-            .addAnswer(
-                Answer(
-                    timestamp = answer.timestamp,
-                    questionText = answer.questionText,
-                    questionId = answer.questionId,
-                    questionNumber = answer.questionNumber,
-                    answer = answer.answer,
-                    detailsQuestion = answer.detailsQuestion,
-                    detailText = answer.detailText
-                )
-            )
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { response ->
-                    //Toast.makeText(null, response.toString(), Toast.LENGTH_LONG).show()
-                    Log.e(LOG_TAG, "postAnswer() OK, Response from Server: $response")
-                },
-                { error ->
-                    //Toast.makeText(null, error.message, Toast.LENGTH_LONG).show()
-                    Log.e(LOG_TAG, "postAnswer() ${error.message}")
-                }
-            )
+
+        Log.d(LOG_TAG, "postAnswer() ${answer.timestamp.toString()}")
+
+         BackendService.AddAnswerApi()
+             .addAnswer(
+                 Answer(
+                     timestamp = answer.timestamp,
+                     questionText = answer.questionText,
+                     questionId = answer.questionId,
+                     questionNumber = answer.questionNumber,
+                     answer = answer.answer,
+                     detailsQuestion = answer.detailsQuestion,
+                     detailText = answer.detailText
+                 )
+             )
+             .subscribeOn(Schedulers.io())
+             .observeOn(AndroidSchedulers.mainThread())
+             .subscribe(
+
+             )
+
+
+
     }
 
     private fun addAnswer(answer: Answer) {
@@ -110,10 +111,7 @@ object Repository {
         Log.d(LOG_TAG, "setRatingForCurrentQuestion ${question.number}, ${question.title} ${question.subTitle}: $rating")*/
     }
 
-    fun getCurrentOptions(): List<String> {
-        val question = _questions[_currentQuestionNumber]
-        return question.options
-    }
+
 
     fun getCurrentDetails(): List<String> {
         val question = _questions[_currentQuestionNumber]

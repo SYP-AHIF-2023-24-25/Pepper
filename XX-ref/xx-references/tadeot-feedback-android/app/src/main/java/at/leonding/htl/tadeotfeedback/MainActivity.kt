@@ -27,6 +27,7 @@ import java.net.InetAddress
 import java.util.*
 import kotlin.concurrent.thread
 import io.reactivex.Observable
+import kotlin.system.exitProcess
 
 
 class MainActivity : AppCompatActivity() {
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     val backendService = BackendService
     val questionsApi = backendService.getQuestionsApi()
 
-    lateinit var allQustions: List<Question>;
+     var allQustions: List<Question> = emptyList();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -54,30 +55,57 @@ class MainActivity : AppCompatActivity() {
                     questions.forEach {
                         println("Number: ${it.number}, Title: ${it.title}")
                     }
+                    Log.d(LOG_TAG, "${questions}");
                     allQustions = questions;
                 },
                 { error ->
                     println("Fehler beim Laden der Fragen: ${error.message}")
+                    allQustions = emptyList();
                 }
             )
 
-        compositeDisposable.add(observable)
-        Thread.sleep(5000);
-        _currentQuestion = allQustions[0];
-
-        val titleTextView: TextView = findViewById(R.id.txt_title)
-
-        // Setze den Text des TextView auf den Titel der aktuellen Frage
-        titleTextView.text = _currentQuestion.title
-        txt_sub_title.text = _currentQuestion.subTitle
-
-        Repository.setQuestions(allQustions);
+        Thread.sleep(1000);
 
 
-        Log.d(LOG_TAG, "${allQustions}")
+        if(!allQustions.isEmpty()){
+            compositeDisposable.add(observable)
+            Thread.sleep(5000);
+            _currentQuestion = allQustions[0];
 
-        getSettingsFromDialog()
-        Log.d(LOG_TAG, "onCreate() nach getSettings()")
+            val titleTextView: TextView = findViewById(R.id.txt_title)
+
+            // Setze den Text des TextView auf den Titel der aktuellen Frage
+            titleTextView.text = _currentQuestion.title
+            txt_sub_title.text = _currentQuestion.subTitle
+
+            Repository.setQuestions(allQustions);
+
+
+            Log.d(LOG_TAG, "${allQustions}")
+
+            getSettingsFromDialog()
+            Log.d(LOG_TAG, "onCreate() nach getSettings()")
+        }else{
+            val builder = AlertDialog.Builder(this@MainActivity)
+            builder.setTitle("Keine Internetverbindung!")
+            builder.setPositiveButton("Anwendung neu starten") { _, _ ->
+
+                restartApplication();
+                exitProcess(0);
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show();
+
+        }
+
+
+    }
+
+    private fun restartApplication() {
+        //Restart Application
+        val intent = intent
+        finish()
+        startActivity(intent)
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {

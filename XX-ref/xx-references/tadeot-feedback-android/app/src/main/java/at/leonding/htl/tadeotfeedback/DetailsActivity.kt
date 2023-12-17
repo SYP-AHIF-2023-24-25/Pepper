@@ -19,6 +19,7 @@ import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 class DetailsActivity : AppCompatActivity() {
     private val LOG_TAG = MainActivity::class.java.simpleName
@@ -131,28 +132,52 @@ class DetailsActivity : AppCompatActivity() {
         }
         else
         {
-            //this.answer = btn.text.toString();
+            try{
+                //this.answer = btn.text.toString();
 
-            //Repository.setDetailForCurrentQuestion(btn.text.toString())
+                // Aktuellen Zeitstempel erstellen
+                val currentTimestamp = Date()
 
-            val question = Repository.getCurrentQuestion();
-            val answer: Answer = Answer(
-                timestamp = java.util.Date().toString(),
-                questionText = question.title,
-                questionId = question.id,
-                questionNumber = question.number,
-                answer = this.answer,
-                detailsQuestion = question.detailsQuestion,
-                detailText = this.detailAnswer
-            );
+                // Einen Stunde hinzufügen
+                val calendar = Calendar.getInstance()
+                calendar.time = currentTimestamp
+                calendar.add(Calendar.HOUR_OF_DAY, 1)
 
-            Repository.postAnswer(answer);
+                // Den neuen Zeitstempel erhalten
+                val newTimestamp = calendar.time
 
-            var lastQuestion = Repository.gotoNextQuestion();
-            if (lastQuestion)
-                newFeedback()
-            else
+                val question = Repository.getCurrentQuestion();
+                val answer: Answer = Answer(
+                    timestamp =  currentTimestamp.toString(),
+                    questionText = question.title,
+                    questionId = question.id,
+                    questionNumber = question.number,
+                    answer = this.answer,
+                    detailsQuestion = question.detailsQuestion,
+                    detailText = this.detailAnswer
+                );
+
+
+                Repository.postAnswer(answer);
+
+                var lastQuestion = Repository.gotoNextQuestion();
+                if (lastQuestion)
+                    newFeedback()
+
                 finish()
+
+
+            }catch(e: java.lang.Exception){
+                Log.d(LOG_TAG, "Feedback not saved")
+                val builder = AlertDialog.Builder(this@DetailsActivity)
+                builder.setTitle("Feedback konnte nicht gespeichert werden." +
+                        "Keine Netzwerkverbindung");
+                builder.setPositiveButton("Feedback neustarten") { _, _ -> }
+                val dialog: AlertDialog = builder.create()
+                dialog.show()
+            }
+
+
 
         }
 
