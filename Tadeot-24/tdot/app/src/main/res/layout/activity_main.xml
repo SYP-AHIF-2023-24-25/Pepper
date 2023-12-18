@@ -15,12 +15,12 @@
         android:id="@+id/square1"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_columnWeight="1"
         android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
         android:layout_margin="8dp"
-        android:text="Connect Four"
+        android:drawableBottom="@drawable/connectfour"
         android:onClick="onSquareClick"
-        android:background="@drawable/iconconnectfour"/>
+        android:text="Connect Four" />
 
 
 

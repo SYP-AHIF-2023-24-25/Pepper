@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
     }
 
     private fun initializeBoard() {
