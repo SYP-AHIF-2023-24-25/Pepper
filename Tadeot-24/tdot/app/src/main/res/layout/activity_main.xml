@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gridLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="3"
+    android:rowCount="2"
+    android:padding="32dp"
+    android:layout_gravity="center"
+    tools:context=".MainActivity">
+
+    <!-- Square 1 -->
+    <Button
+        android:id="@+id/square1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_margin="8dp"
+        android:drawableBottom="@drawable/connectfour"
+        android:onClick="onSquareClick"
+        android:text="Connect Four" />
+
+
+
+    <!-- Square 2 -->
+    <Button
+        android:id="@+id/square2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="8dp"
+        android:text="Feedback"
+        android:onClick="onSquareClick"/>
+
+    <!-- Square 3 -->
+    <Button
+        android:id="@+id/square3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="8dp"
+        android:text="Tänze"
+        android:onClick="onSquareClick"/>
+
+    <!-- Square 4
+    <Button
+        android:id="@+id/square4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="8dp"
+        android:text="Tänze"
+        android:onClick="onSquareClick"/>
+
+    Square 5
+    <Button
+        android:id="@+id/square5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="8dp"
+        android:text="Square 5"
+        android:onClick="onSquareClick"/>
+
+    Square 6
+    <Button
+        android:id="@+id/square6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="8dp"
+        android:text="Square 6"
+        android:onClick="onSquareClick"/>
+    -->
+</GridLayout>
