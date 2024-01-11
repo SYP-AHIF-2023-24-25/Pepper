@@ -50,6 +50,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        val tdot2Button: Button = findViewById<Button>(R.id.square3)
+        tdot2Button.setOnClickListener {
+            val intent = Intent(this, TdotTwo::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun initializeBoard() {
