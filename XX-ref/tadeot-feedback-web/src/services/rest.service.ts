@@ -54,8 +54,8 @@ export class RestService {
   getAnswerResults(questionNumber: number): Observable<AnswerResults> {
     let headers: HttpHeaders = new HttpHeaders();
     return this.http.get<AnswerResults>(
-      this.baseUrl + 'answers/statistics?questionNumber=' + questionNumber,
-      { headers });
+      this.baseUrl + 'answers/statistics?questionNumber=' + questionNumber
+      );
   }
 
   async postAnswer(answer: Answer) {
