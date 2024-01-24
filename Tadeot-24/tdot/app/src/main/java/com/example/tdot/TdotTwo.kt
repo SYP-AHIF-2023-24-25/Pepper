@@ -1,16 +1,14 @@
 package com.example.tdot
 
 import android.content.Intent
-import android.media.AudioAttributes
 import android.media.MediaPlayer
+import android.media.session.MediaSession
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.CountDownTimer
-import android.os.Environment
-import android.util.Log
-import android.view.Menu
 import android.widget.Button
+import android.widget.MediaController
+import android.widget.VideoView
 import androidx.annotation.RequiresApi
 import com.aldebaran.qi.sdk.QiContext
 import com.aldebaran.qi.sdk.QiSDK
@@ -23,10 +21,6 @@ import com.aldebaran.qi.sdk.`object`.actuation.Animate
 import com.aldebaran.qi.sdk.`object`.conversation.Phrase
 import com.aldebaran.qi.sdk.`object`.conversation.Say
 import java.io.File
-import java.nio.file.Files
-import java.nio.file.Path
-import java.nio.file.Paths
-import kotlin.time.Duration.Companion.milliseconds
 
 class TdotTwo: RobotActivity(), RobotLifecycleCallbacks {
     private var animate: Animate? = null
@@ -34,18 +28,70 @@ class TdotTwo: RobotActivity(), RobotLifecycleCallbacks {
     //val animateFuture: Future<Void>? = animate?.async()?.run()
     private lateinit var qiContext: QiContext
     //private var mediaPlayer: MediaPlayer? = null
-
+    private var currentDance: Int = R.raw.pepper_dance_fein
    // private val dances: List<Dance> = getListOfDances()
+    var videoView: VideoView? = null
+    var mediaController: MediaController? = null
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pepper_dances)
 
+        videoView = findViewById<VideoView>(R.id.videoView) as VideoView?
+        if(mediaController == null) {
+            mediaController = MediaController(this)
+
+            mediaController!!.setAnchorView(videoView)
+        }
+        videoView!!.setMediaController(mediaController)
+        videoView!!.setVideoURI(Uri.parse("android.resource://"
+                + packageName + "/" + R.raw.dance_pepper_video))
+        videoView!!.requestFocus()
+
+
         val mediaPlayer: MediaPlayer = MediaPlayer.create(this, R.raw.playboi_carti_stop_breathing_official_audio_k4zvzbrb)
         val button: Button = findViewById<Button>(R.id.playAnimation)
         button.setOnClickListener {
+           // val resourceStr = this.resources.getResourceName(R.raw.playboi_carti_stop_breathing_official_audio_k4zvzbrb)
+            //val resourceURI: Uri = Uri.parse("android.resource://" + this.packageName + "/" + R.raw.playboi_carti_stop_breathing_official_audio_k4zvzbrb);
+
+         if(mediaPlayer.isPlaying){
+             mediaPlayer.pause()
+         }
+            videoView!!.start()
+
+            /*mediaPlayer.setDataSource(resourceStr)
+            mediaPlayer.prepareAsync()
+            mediaPlayer.setOnPreparedListener {
+                mediaPlayer.start()
+            }*/
+            currentDance = R.raw.pepper_dance_fein
             mediaPlayer.start()
+
             QiSDK.register(this, this)
+        }
+       /*val secondButton: Button = findViewById(R.id.secondDancePlay)
+       secondButton.setOnClickListener {
+           //val resourceStr = this.resources.getResourceName(R.raw.die_affen_rasen_durch_den_wald_song)
+           // val resourceURI: Uri = Uri.parse("android.resource://" + this.packageName + "/" + R.raw.die_affen_rasen_durch_den_wald_song);
+            currentDance = R.raw.die_affen_rasen_durch_den_wald
+          if(mediaPlayer.isPlaying){
+               mediaPlayer.pause()
+          }
+           *//*mediaPlayer.release()
+           mediaPlayer.setDataSource(resourceStr)
+           mediaPlayer.prepareAsync()
+           mediaPlayer.setOnPreparedListener {
+               mediaPlayer.start()
+           }*//*
+           mediaPlayer.start()
+           QiSDK.register(this, this)
+       }*/
+        val stopButton: Button = findViewById(R.id.stopVideo)
+        stopButton.setOnClickListener {
+            mediaPlayer.pause()
+            videoView!!.stopPlayback()
+            videoView!!.resume()
         }
         val backToMainActivity: Button = findViewById<Button>(R.id.backToMain)
         backToMainActivity.setOnClickListener {
@@ -65,7 +111,7 @@ class TdotTwo: RobotActivity(), RobotLifecycleCallbacks {
         this.qiContext = qiContext
         // Create an animation.
         val animation = AnimationBuilder.with(qiContext) // Create the builder with the context.
-            .withResources(R.raw.pepper_dance_fein) // Set the animation resource.
+            .withResources(currentDance) // Set the animation resource.
             .build() // Build the animation.
 
         // Create an animate action.
@@ -125,7 +171,4 @@ class TdotTwo: RobotActivity(), RobotLifecycleCallbacks {
 
         say.run()
     }
-
-
-
 }
