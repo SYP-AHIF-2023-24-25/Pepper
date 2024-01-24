@@ -1,5 +1,7 @@
 package at.htlleonding.visitorassistant.navigation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -12,6 +14,7 @@ import at.htlleonding.visitorassistant.screens.goodbye_screens.NegativeGoodbye
 import at.htlleonding.visitorassistant.screens.goodbye_screens.PositiveGoodbye
 import com.aldebaran.qi.sdk.QiContext
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun QuestionnaireNavigation() {
     val navController = rememberNavController()

@@ -1,6 +1,8 @@
 package at.htlleonding.visitorassistant.screens
 
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -35,9 +37,12 @@ import kotlinx.coroutines.delay
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 var firstSwitchMulti = true
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun MultipleChoiceScreen(
     navController: NavController
@@ -95,9 +100,15 @@ fun MultipleChoiceScreen(
                     Button(
                         modifier = Modifier.fillMaxSize(),
                         onClick = {
-                            Log.d("Navigation", "Button 'Informatik' clicked - navigating to ${Routes.PositiveGoodbye.route}")
+                            val currentTimestamp: LocalDateTime = LocalDateTime.now()
+
+                            // Format the timestamp as a string
+                            val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSS")
+                            val formattedTimestamp: String = currentTimestamp.format(formatter)
                             TadeotRequests.postAnswer(
                                 QuestionData(
+                                    formattedTimestamp,
+                                    "Kannst Du Dir vorstellen, Dich für die HTL Leonding anzumelden?",
                                     1,
                                     1,
                                     "Ja",
@@ -142,8 +153,15 @@ fun MultipleChoiceScreen(
                     Button(
                         modifier = Modifier.fillMaxSize(),
                         onClick = {
+                            val currentTimestamp: LocalDateTime = LocalDateTime.now()
+
+                            // Format the timestamp as a string
+                            val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSS")
+                            val formattedTimestamp: String = currentTimestamp.format(formatter)
                             TadeotRequests.postAnswer(
                                 QuestionData(
+                                    formattedTimestamp,
+                                    "Kannst Du Dir vorstellen, Dich für die HTL Leonding anzumelden?",
                                     1,
                                     1,
                                     "Ja",
@@ -152,11 +170,13 @@ fun MultipleChoiceScreen(
                                 )
                             )!!.enqueue(object :
                                 Callback<QuestionData?> {
+
                                 override fun onResponse(call: Call<QuestionData?>, response: Response<QuestionData?>) {
                                     Log.d("HSP", "Request reached server")
                                 }
 
                                 override fun onFailure(call: Call<QuestionData?>, t: Throwable) {
+                                    Log.d("HSP", "Negative Goodbye")
                                     navController.navigate(Routes.InternetConnectionError.route)
                                 }
                             })
@@ -193,8 +213,15 @@ fun MultipleChoiceScreen(
                     Button(
                         modifier = Modifier.fillMaxSize(),
                         onClick = {
+                            val currentTimestamp: LocalDateTime = LocalDateTime.now()
+
+                            // Format the timestamp as a string
+                            val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSS")
+                            val formattedTimestamp: String = currentTimestamp.format(formatter)
                             TadeotRequests.postAnswer(
                                 QuestionData(
+                                    formattedTimestamp,
+                                    "Kannst Du Dir vorstellen, Dich für die HTL Leonding anzumelden?",
                                     1,
                                     1,
                                     "Ja",
@@ -209,6 +236,7 @@ fun MultipleChoiceScreen(
                                 }
 
                                 override fun onFailure(call: Call<QuestionData?>, t: Throwable) {
+                                    Log.d("HSP", "Negative goodbye")
                                     navController.navigate(Routes.InternetConnectionError.route)
                                 }
                             })
@@ -239,13 +267,20 @@ fun MultipleChoiceScreen(
                     Button(
                         modifier = Modifier.fillMaxSize(),
                         onClick = {
+                            val currentTimestamp: LocalDateTime = LocalDateTime.now()
+
+                            // Format the timestamp as a string
+                            val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSS")
+                            val formattedTimestamp: String = currentTimestamp.format(formatter)
                             TadeotRequests.postAnswer(
                                 QuestionData(
+                                    formattedTimestamp,
+                                    "Kannst Du Dir vorstellen, Dich für die HTL Leonding anzumelden?",
                                     1,
                                     1,
                                     "Ja",
                                     "Wenn ja, für welchen Zweig?",
-                                    "Medizintechnik"
+                                    "Medizintechnnik"
                                 )
                             )!!.enqueue(object :
                                 Callback<QuestionData?> {

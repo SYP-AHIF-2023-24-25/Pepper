@@ -1,6 +1,8 @@
 package at.htlleonding.visitorassistant.screens
 
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -35,10 +37,13 @@ import at.htlleonding.visitorassistant.ui.theme.LightBlue
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import kotlin.reflect.typeOf
 
 var firstSwitch = true
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun HomeScreen(navController: NavController) {
     firstSwitchIndecisiveBye = true
@@ -110,8 +115,14 @@ fun HomeScreen(navController: NavController) {
                 ){
                     Button(
                         modifier = Modifier.fillMaxSize(),
+
                         onClick = {
-                            TadeotRequests.postAnswer(QuestionData(1, 1, "Weiß noch nicht", "Wenn ja, für welchen Zweig?", ""))!!.enqueue(object :
+                            val currentTimestamp: LocalDateTime = LocalDateTime.now()
+
+                            // Format the timestamp as a string
+                            val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSS")
+                            val formattedTimestamp: String = currentTimestamp.format(formatter)
+                            TadeotRequests.postAnswer(QuestionData(formattedTimestamp, "Kannst Du Dir vorstellen, Dich für die HTL Leonding anzumelden?", 1, 1,"Vielleicht","Wenn ja, für welchen Zweig?", ""))!!.enqueue(object :
                                 Callback<QuestionData?> {
                                 override fun onResponse(call: Call<QuestionData?>, response: Response<QuestionData?>) {
                                     Log.d("HSP", "Request reached server")
@@ -146,7 +157,12 @@ fun HomeScreen(navController: NavController) {
                         modifier = Modifier
                             .fillMaxSize(),
                         onClick = {
-                            TadeotRequests.postAnswer(QuestionData(1, 1, "Nein", "Wenn ja, für welchen Zweig?", ""))!!.enqueue(object :
+                            val currentTimestamp: LocalDateTime = LocalDateTime.now()
+
+                            // Format the timestamp as a string
+                            val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSS")
+                            val formattedTimestamp: String = currentTimestamp.format(formatter)
+                            TadeotRequests.postAnswer(QuestionData(formattedTimestamp, "Kannst Du Dir vorstellen, Dich für die HTL Leonding anzumelden?", 1, 1,"Nein","Wenn ja, für welchen Zweig?", ""))!!.enqueue(object :
                                 Callback<QuestionData?> {
                                 override fun onResponse(call: Call<QuestionData?>, response: Response<QuestionData?>) {
                                     Log.d("HSP", "Request reached server")

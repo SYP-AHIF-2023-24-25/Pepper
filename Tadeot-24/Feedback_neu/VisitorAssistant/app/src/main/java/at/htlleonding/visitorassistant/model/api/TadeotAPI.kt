@@ -6,7 +6,7 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface TadeotAPI {
-    @POST("api/answers")
+    @POST("answers")
     fun postAnswer(@Body questionData: QuestionData?): Call<QuestionData?>?
 
 }
