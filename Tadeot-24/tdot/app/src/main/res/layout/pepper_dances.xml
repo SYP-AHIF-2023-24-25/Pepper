@@ -24,31 +24,48 @@
         <TextView
             android:id="@+id/welcomeHeader"
             android:layout_width="608dp"
-            android:layout_height="139dp"
+            android:layout_height="81dp"
             android:layout_gravity="center"
-            android:text="Welcome to Pepperdances"
+            android:text="Pepperdance"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textSize="48sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/playAnimation"
-            android:layout_width="209dp"
-            android:layout_height="81dp"
-            android:layout_marginTop="16dp"
-            android:text="play"
-            android:textSize="20sp" />
-
-        <Space
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="173dp" />
+            android:layout_height="91dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/stopVideo"
+                android:layout_width="241dp"
+                android:layout_height="73dp"
+                android:text="stop"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/playAnimation"
+                android:layout_width="238dp"
+                android:layout_height="72dp"
+                android:layout_margin="30dp"
+                android:text="play"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="582dp"
+            android:layout_height="213dp" />
 
         <Button
             android:id="@+id/backToMain"
             android:layout_width="321dp"
             android:layout_height="76dp"
-            android:text="Back" />
+            android:text="Back"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
