@@ -132,13 +132,13 @@ export class StatisticComponent implements OnInit {
     
 
     for(let i = 0; i < this.questions.length; i++){
-      const results = await this.restService.getAnswerResults(this.questions[i].number).toPromise();
+      const results: any = await this.restService.getAnswerResults(this.questions[i].number).toPromise();
       this.allAnswers.push(results!);
-    }
-
-    console.log(this.allAnswers);
-
-   
+      console.log(results);
+      
+    } 
+    
+    
   }
   async next() {
     this.current++;

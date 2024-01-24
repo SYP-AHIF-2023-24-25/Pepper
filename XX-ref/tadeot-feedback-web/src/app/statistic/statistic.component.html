@@ -6,6 +6,8 @@
 </head>
 
 <body class="container">
+
+  
   
  
 
@@ -40,6 +42,8 @@
         [data]="detailsData"></google-chart>
     </mat-grid-tile>
   </mat-grid-list>
+
+
   
   <div class="statistic">
     <img src="assets/htllogo_2022_black.png" width="20%" style="float:left">
@@ -52,75 +56,82 @@
         <mat-icon>arrow_forward</mat-icon>
       </button>
     </div>
+
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   
  
   
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  
-  
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+
   <br>  
 
   <div class="container mt-4">
     <h2>Fragen und Antworten</h2>
 
-    <table class="table">
+    <table class="table" >
         <thead class="thead-light">
             <tr>
                 <th>Frage Nummer</th>
                 <th>Frage Titel</th>
-                <th>Unterfrage </th>
+                
                 <th>Antwort</th>
                 <th>Detailtext </th>
+                <!--
                 <th>Unterfrage </th>
                 <th>Antwort </th>
-                <th>Detailtext</th>
+                <th>Detailtext</th>-->
             </tr>
         </thead>
         <tbody>
             <ng-container *ngFor="let answerResult of allAnswers; let i = index">
-                <tr *ngFor="let mainResult of answerResult.mainResult; let j = index">
+
+              
+                <tr *ngFor="let mainResult of answerResult.mainResult; let j = index">              
                     <td>{{ questions[i].number }}</td>
-                    <td>{{ questions[i].title }}</td>
-                    <td>{{ mainResult.question }}</td>
+                    <td>{{ questions[i].title }}</td>                    
                     <td>{{ mainResult.count }}</td>
-                    <td>{{ mainResult.category }}</td>
-                    <td>{{ answerResult.detailResults[j].question }}</td>
-                    <td>{{ answerResult.detailResults[j].count }}</td>
-                    <td>{{ answerResult.detailResults[j].category }}</td>
+                    <td>{{ mainResult.category }}</td> 
+                    <!--                    
+                    <td >{{ answerResult.detailResults[j].question}}</td>
+                    <td> {{ answerResult.detailResults[j].count }}</td>
+                    <td >{{ answerResult.detailResults[j].category }}</td> -->
                 </tr>
             </ng-container>
         </tbody>
@@ -128,8 +139,13 @@
 </div>
 
 
+ 
+<br>
+<br>
+<br>
+
   
-  </div>
+
 
   
 
